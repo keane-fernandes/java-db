@@ -119,4 +119,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Custom files
+fileSystem/*
+BNF.txt
+test-transcript.docx
+
 # End of https://www.toptal.com/developers/gitignore/api/macos,intellij+all
