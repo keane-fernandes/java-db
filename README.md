@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center">A relational database server built from scratch built in Java.</h4>
+<h4 align="center">A relational database server built from scratch in Java.</h4>
 
 <p align="center">
   <a href="#Features">Key Features</a> |
