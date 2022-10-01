@@ -9,7 +9,7 @@
 <h4 align="center">A relational database server built from scratch in Java.</h4>
 
 <p align="center">
-  <a href="#Features">Key Features</a> |
+  <a href="#Key Features">Key Features</a> |
   <a href="#Usage">Usage</a> |
   <a href="#Design">Design</a> |
   <a href="#License">License</a>
