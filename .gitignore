@@ -123,5 +123,6 @@ Temporary Items
 fileSystem/*
 BNF.txt
 test-transcript.docx
+DB.mp4
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,intellij+all
