@@ -24,43 +24,9 @@
 - Persistent data storage
 - Error handling
 
-# Design
-The application is split into three core modules that are needed to ensure that the server is running - *DBCommands*, *DBEngine* and *DBExceptions*.
-
-## DBCommands
-The *DBCommands* module contains classes that implement each of the supported SQL commands.
-
-| Class | Description |
-| --- | ----------- |
-| DBQuery |  The parent class|
-| CMDx | Child classes of *DBQuery* where 'x' corresponds to each supported SQL command. |
-| Condition | A class that tokenizes a user-input condition and outputs a parameterized string that enables the DBEngine module to evaluate the condition. |
-
-## DBEngine
-The *DBEngine* module contains the core classes that deal with file I/O and command parsing.
-
-| Class | Description |
-| --- | ----------- |
-| DBCommandHandler |  Performs preliminary checks on the SQL command entered by the user on the command line. |
-| DBTokenizer |  Tokenizes the user's input string to check if the SQL command is valid. |
-| DBFileIO | Deals with writing to and from the storage media for the purposes of persistent storage. |
-| DBStorage | Ensures the file system is robust and error free during read / write operations. |
-| DBTable |  Represents a table in a relational database management system. |
-| DBExpressionCalculator |  Evaluates criteria within an SQL command. |
-
-## DBExceptions
-The *DBExceptions* module contains exception classes and these exceptions are thrown when the RDBMS reaches an error state.
-
-| Exception Class | Description |
-| --- | ----------- |
-| DBException |  Parent class of any exception thrown by the server. |
-| DBParseException | Error in the SQL query. |
-| DBExecutionException | Invalid criteria within a valid SQL query. |
-| DBStorageExecution | Error in the persistent file system.  |
-
 # Usage
 ## Overview
-The server and client can be launched via the *DBServer* and *DBClient* classes respectively. The database server listens on port 8888 in order to receive incoming messages. These incoming commands are then passed to the `handleCommand` method for processing.
+The server and client can be launched via the *DBServer* and *DBClient* classes respectively. The database server listens on port `8888` in order to receive incoming messages. These incoming commands are then passed to the `handleCommand` method for processing.
 
 ## Querying the Server
 The client will communicate with the server using a simplified version of the SQL database query language. A brief overview of the query language is provided below:
@@ -142,6 +108,42 @@ A valid **SELECT** query assuming a *people* table exists in the database would 
 and similarly,
 <pre>SELECT    *  FROM     people  WHERE   Name  ==  'Steve' ;</pre>
 is valid and acceptable, being equivalent to the first query.
+
+
+# Design
+The application is split into three core modules that are needed to ensure that the server is running - *DBCommands*, *DBEngine* and *DBExceptions*.
+
+## DBCommands
+The *DBCommands* module contains classes that implement each of the supported SQL commands.
+
+| Class | Description |
+| --- | ----------- |
+| DBQuery |  The parent class|
+| CMDx | Child classes of *DBQuery* where 'x' corresponds to each supported SQL command. |
+| Condition | A class that tokenizes a user-input condition and outputs a parameterized string that enables the DBEngine module to evaluate the condition. |
+
+## DBEngine
+The *DBEngine* module contains the core classes that deal with file I/O and command parsing.
+
+| Class | Description |
+| --- | ----------- |
+| DBCommandHandler |  Performs preliminary checks on the SQL command entered by the user on the command line. |
+| DBTokenizer |  Tokenizes the user's input string to check if the SQL command is valid. |
+| DBFileIO | Deals with writing to and from the storage media for the purposes of persistent storage. |
+| DBStorage | Ensures the file system is robust and error free during read / write operations. |
+| DBTable |  Represents a table in a relational database management system. |
+| DBExpressionCalculator |  Evaluates criteria within an SQL command. |
+
+## DBExceptions
+The *DBExceptions* module contains exception classes and these exceptions are thrown when the RDBMS reaches an error state.
+
+| Exception Class | Description |
+| --- | ----------- |
+| DBException |  Parent class of any exception thrown by the server. |
+| DBParseException | Error in the SQL query. |
+| DBExecutionException | Invalid criteria within a valid SQL query. |
+| DBStorageExecution | Error in the persistent file system.  |
+
 
 # License
 
